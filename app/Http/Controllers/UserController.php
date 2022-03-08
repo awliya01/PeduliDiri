@@ -36,16 +36,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $password = $request->password;
         $isi = [
             'nik' => $request->nik,
             'nama' => $request->nama,
             'email' => $request->email,
             'telp' => $request->telp,
             'username' => $request->username,
-            'password' => $request->password,
+            'password' => bcrypt($password),
             'confirm_password' => $request->confirm_password
         ];
+
         User::create($isi);
+
         return redirect('/user');
     }
 
@@ -68,7 +71,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit = User::find($id);
+        return view('user.edit', compact('edit'));
     }
 
     /**
@@ -91,6 +95,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hapus = User::find($id)->delete();
+        return redirect('/user');
     }
 }

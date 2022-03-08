@@ -11,23 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::group(['middleware' => 'auth'], function () {
+    //Route Perjalanan
+    Route::get('/diri', 'PerjalananController@index');
+    Route::get('/diri/create', 'PerjalananController@create');
+    Route::post('/diri/store', 'PerjalananController@store');
+    Route::get('/diri/destroy/{id_perjalanan}', 'PerjalananController@destroy');
+
+    //Route User
+    Route::get('/user', 'UserController@index');
+    Route::get('/user/create', 'UserController@create');
+    Route::post('/user/store', 'UserController@store');
+    Route::get('/user/edit/{id}', 'UserController@edit');
+    Route::put('/user/update/{id}', 'UserController@update');
+    Route::get('/user/delete/{id}', 'UserController@destroy');
 });
 
-//Route Perjalanan
-Route::get('/diri', 'PerjalananController@index');
-Route::get('/diri/create', 'PerjalananController@create');
-Route::post('/diri/store', 'PerjalananController@store');
-Route::get('/diri/destroy/{id_perjalanan}', 'PerjalananController@destroy');
 
-//Route User
-Route::get('/user', 'UserController@index');
-Route::get('/user/create', 'UserController@create');
-Route::post('/user/store', 'UserController@store');
-Route::get('/user/edit/{id}', 'UserController@edit');
-Route::put('/user/update/{id}', 'UserController@update');
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');

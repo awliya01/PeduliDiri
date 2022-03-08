@@ -1,4 +1,7 @@
 <div class="card">
+    <div class="card-header">
+        <h4>Profile</h4>
+    </div>
     <img class="card-img-top" src="{{ asset('foto/878006.jpg') }}" alt="Card image cap">
     <div class="card-body">
         <h5 class="card-title">{{ Auth::user()->nama }}</h5>
@@ -40,7 +43,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                <a href="" class="btn btn-block btn-primary ">Edit</a>
+                <a href="/user/edit/{{ Auth::user()->id }}" class="btn btn-block btn-primary ">Edit Profile</a>
             </div>
         </div>
 

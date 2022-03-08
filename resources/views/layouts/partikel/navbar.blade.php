@@ -11,12 +11,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
+                @if (isset(Auth::user()->id))
                 <li class="nav-item">
                     <a class="nav-link" href="/diri">{{ __('Data Perjalanan') }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/user">{{ __('User') }}</a>
                 </li>
+                @endif
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -41,7 +43,7 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                     document.getElementById('logout-form').submit();">
+                                document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 
