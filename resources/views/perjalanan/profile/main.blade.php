@@ -3,9 +3,9 @@
         <h4>Profile</h4>
     </div>
 
-    <img class="card-img-top" style="height: 200px"
-        @if (Auth::user()->foto > 0) src="{{ asset('foto/' . Auth::user()->foto) }}" @else
-        src="{{ asset('foto/878006.jpg') }}" @endif
+    <img class="card-img-top"
+        @if (Auth::user()->foto > 0) src="{{ asset('foto/' . Auth::user()->foto) }}"  style="height: 200px;" @else
+        src="{{ asset('foto/default.png') }}" @endif
         alt="Card image cap">
 
     <div class="card-body">
