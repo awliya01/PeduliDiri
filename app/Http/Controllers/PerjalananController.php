@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Perjalanan;
+use Illuminate\Support\Facades\Auth;
 
 class PerjalananController extends Controller
 {
@@ -14,7 +15,11 @@ class PerjalananController extends Controller
      */
     public function index()
     {
-        $table = Perjalanan::all();
+        if (Auth::user()->role == 'admin') {
+            $table = Perjalanan::all();
+        } else {
+            $table = Perjalanan::where('id_user', Auth::user()->id)->get();
+        }
         return view('perjalanan.index', compact('table'));
     }
 
@@ -40,7 +45,8 @@ class PerjalananController extends Controller
             'tanggal' => $request->tanggal,
             'jam' => $request->jam,
             'lokasi' => $request->lokasi,
-            'suhu_tubuh' => $request->suhu_tubuh
+            'suhu_tubuh' => $request->suhu_tubuh,
+            'id_user' => Auth::user()->id
         ];
         Perjalanan::create($data);
         return redirect('/diri');
@@ -65,7 +71,8 @@ class PerjalananController extends Controller
      */
     public function edit($id_perjalanan)
     {
-        //
+        $edit = Perjalanan::find($id_perjalanan);
+        return view('perjalanan.edit', compact('edit'));
     }
 
     /**
@@ -77,7 +84,7 @@ class PerjalananController extends Controller
      */
     public function update(Request $request, $id_perjalanan)
     {
-        //
+        // 
     }
 
     /**

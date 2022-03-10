@@ -19,6 +19,7 @@ class CreatePerjalanansTable extends Migration
             $table->string('jam');
             $table->string('lokasi');
             $table->string('suhu_tubuh');
+            $table->integer('id_user');
             $table->timestamps();
         });
     }

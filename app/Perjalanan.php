@@ -11,7 +11,8 @@ class Perjalanan extends Model
         'tanggal',
         'jam',
         'lokasi',
-        'suhu_tubuh'
+        'suhu_tubuh',
+        'id_user'
     ];
 
     protected $primaryKey = 'id_perjalanan';

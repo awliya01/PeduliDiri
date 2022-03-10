@@ -163,6 +163,19 @@
                     <h1>Tambah Data User</h1>
                 </div>
                 <div class="form-group">
+                    {{-- <label for="role">Role</label> --}}
+                    {{-- <input type="text" class="form-control item" name="role" id="role" placeholder="role"> --}}
+                    {{-- <select name="role" id="role" class="form-control item" requireds>
+                        <option value="admin">admin</option>
+                        <option value="user">user</option>
+                    </select> --}}
+                    <input type="radio" name="role" id="admin" value="admin" required>&nbsp;<label
+                        for="admin">admin</label>
+                    &nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="role" id="user" value="user" required>&nbsp;<label for="user">user</label>
+
+                </div>
+                <div class="form-group">
                     <label for="nik">NIK</label>
                     <input type="text" class="form-control item" name="nik" id="nik" placeholder="nik">
                 </div>

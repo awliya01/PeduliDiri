@@ -2,7 +2,12 @@
     <div class="card-header">
         <h4>Profile</h4>
     </div>
-    <img class="card-img-top" src="{{ asset('foto/878006.jpg') }}" alt="Card image cap">
+
+    <img class="card-img-top" style="height: 200px"
+        @if (Auth::user()->foto > 0) src="{{ asset('foto/' . Auth::user()->foto) }}" @else
+        src="{{ asset('foto/878006.jpg') }}" @endif
+        alt="Card image cap">
+
     <div class="card-body">
         <h5 class="card-title">{{ Auth::user()->nama }}</h5>
         <div class="row">
@@ -41,12 +46,13 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <a href="/user/edit/{{ Auth::user()->id }}" class="btn btn-block btn-primary ">Edit Profile</a>
+        @if (Request::url() == route('perjalanan.data'))
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="/user/edit/{{ Auth::user()->id }}" class="btn btn-block btn-primary ">Edit Profile</a>
+                </div>
             </div>
-        </div>
-
+        @endif
 
     </div>
 </div>

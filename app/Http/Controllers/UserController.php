@@ -38,6 +38,7 @@ class UserController extends Controller
     {
         $password = $request->password;
         $isi = [
+            'role' => $request->role,
             'nik' => $request->nik,
             'nama' => $request->nama,
             'email' => $request->email,
@@ -84,7 +85,34 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($request->foto > 0) {
+            $foto = $request->foto;
+            $v_foto = time() . rand(100, 999) . "-" . $foto->getClientOriginalName();
+        }
+
+        $where = User::find($id);
+
+        $data = [
+            'nik' => $request->nik,
+            'nama' => $request->nama,
+            'telp' => $request->telp,
+            'email' => $request->email
+        ];
+
+
+
+        if ($request->foto > 0 && isset($v_foto)) {
+            $where->foto = $v_foto;
+        }
+
+        if (isset($v_foto) > 0) {
+            $foto->move(public_path() . '/foto', $v_foto);
+        }
+
+
+        $where->update($data);
+        // dd($id);
+        return redirect("/user/edit/$id");
     }
 
     /**
@@ -95,7 +123,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $hapus = User::find($id)->delete();
+        User::find($id)->delete();
         return redirect('/user');
     }
 }

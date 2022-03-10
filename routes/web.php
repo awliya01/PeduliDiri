@@ -17,10 +17,11 @@
 
 Route::group(['middleware' => 'auth'], function () {
     //Route Perjalanan
-    Route::get('/diri', 'PerjalananController@index');
+    Route::get('/diri', 'PerjalananController@index')->name('perjalanan.data');
     Route::get('/diri/create', 'PerjalananController@create');
     Route::post('/diri/store', 'PerjalananController@store');
     Route::get('/diri/destroy/{id_perjalanan}', 'PerjalananController@destroy');
+
 
     //Route User
     Route::get('/user', 'UserController@index');

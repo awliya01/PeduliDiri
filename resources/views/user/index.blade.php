@@ -15,6 +15,7 @@
                             <th>Email</th>
                             <th>Telpon</th>
                             <th>Username</th>
+                            <th>Role</th>
                             <th><a href="/user/create">Tambah Data User</a></th>
                         </thead>
 
@@ -25,6 +26,7 @@
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->telp }}</td>
                                 <td>{{ $item->username }}</td>
+                                <td>{{ $item->role }}</td>
                                 <td>
                                     <a href="/user/delete/{{ $item->id }}">Hapus</a>
                                 </td>

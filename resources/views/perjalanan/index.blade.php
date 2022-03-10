@@ -37,8 +37,11 @@
                                             <td>{{ $data->lokasi }}</td>
                                             <td>{{ $data->suhu_tubuh }}</td>
                                             <td>
-                                                <a class="btn btn-primary"
-                                                    href="/diri/destroy/{{ $data->id_perjalanan }}">Hapus</a>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#delete">
+                                                    Hapus
+                                                </button>
+                                                @include('perjalanan.modal.delete')
                                             </td>
                                         </tr>
                                     @endforeach
