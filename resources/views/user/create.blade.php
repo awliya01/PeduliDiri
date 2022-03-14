@@ -187,6 +187,7 @@
                     <label for="email">Email</label>
                     <input type="text" class="form-control item" name="email" id="email" placeholder="email@gmail.com">
                 </div>
+
                 <div class="form-group">
                     <label for="telp">Telpon</label>
                     <input type="text" class="form-control item" name="telp" id="telp" placeholder="telpon">

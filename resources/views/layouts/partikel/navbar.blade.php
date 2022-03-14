@@ -15,11 +15,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/diri">{{ __('Data Perjalanan') }}</a>
                     </li>
-                    @if (Auth::user()->role == 'admin')
+                    {{-- @if (Auth::user()->role == 'admin')
                         <li class="nav-item">
                             <a class="nav-link" href="/user">{{ __('User') }}</a>
                         </li>
-                    @endif
+                    @endif --}}
                 @endif
             </ul>
 

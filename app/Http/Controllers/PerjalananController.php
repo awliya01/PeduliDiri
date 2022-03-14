@@ -15,11 +15,7 @@ class PerjalananController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->role == 'admin') {
-            $table = Perjalanan::all();
-        } else {
-            $table = Perjalanan::where('id_user', Auth::user()->id)->get();
-        }
+        $table = Perjalanan::where('id_user', Auth::user()->id)->get();
         return view('perjalanan.index', compact('table'));
     }
 

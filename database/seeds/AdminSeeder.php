@@ -14,7 +14,6 @@ class AdminSeeder extends Seeder
         DB::table('users')->insert([
             'nik' => '111222333445',
             'nama' => 'admin',
-            'role' => 'admin',
             'email' => 'admin@admim.com',
             'telp' => '0896543454322',
             'username' => 'admin',

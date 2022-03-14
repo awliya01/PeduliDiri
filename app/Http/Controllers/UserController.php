@@ -96,7 +96,8 @@ class UserController extends Controller
             'nik' => $request->nik,
             'nama' => $request->nama,
             'telp' => $request->telp,
-            'email' => $request->email
+            'email' => $request->email,
+            'alamat' => $request->alamat
         ];
 
 
